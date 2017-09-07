@@ -1,0 +1,33 @@
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,pre,a,code,em,img,small,strong,sub,sup,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+a{color:#007bc4; text-decoration:none;}
+a:hover{text-decoration:underline}
+ol,ul{list-style:none}
+table{border-collapse:collapse;border-spacing:0}
+body{height:100%; font:12px/18px "Microsoft Yahei", Tahoma, Helvetica, Arial, Verdana, "\5b8b\4f53", sans-serif; color:#51555C;}
+img{border:none}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.head {border-bottom: 1px solid #dadada;padding: 0 0 5px;}
+.head_inner {margin: 0 auto;width: 980px;}
+.container{width:980px; min-height:600px; margin:30px auto 0 auto; border:1px solid #d3d3d3; background:#fff; -moz-border-radius:5px;-khtml-border-radius: 5px;-webkit-border-radius: 5px; border-radius:5px;}
+h2.title{margin:4px 0 30px;padding:15px 0 10px 20px; border-bottom:1px solid #d3d3d3; font-size:18px; color:#a84c10;}
+.foot{ height:60px;padding:10px 2px; line-height:24px; text-align:center}
+.foot a:hover{color:#51555C}
+.btn{-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;-o-border-radius:3px;border-radius:3px;
+     background-color: #ff8400;color: #fff;display: inline-block;height: 28px;line-height: 28px;text-align: center;
+     width: 72px;transition: background-color 0.2s linear 0s;border:none;cursor:pointer;}
+.demo{width:700px;margin:0 auto}
+.btn:hover{background-color: #e95a00;text-decoration: none}
+
+ul.ul_demo li {
+    background: url("../images/demo_icon.gif") no-repeat scroll 0 6px;
+    line-height: 28px;
+    padding-left: 20px;
+}
+.input{border:1px solid #ccc;padding:0 5px;width:220px; height: 26px;line-height: 26px;}

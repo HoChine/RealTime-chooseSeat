@@ -1,0 +1,32 @@
+var server = require("./www");
+var io = require("socket.io")(server);
+
+io.on('connection', function(socket) {
+	//用户选择的座位
+	socket.chooseSeat = {};
+	socket.isSold = false;
+
+    //监听用户选择座位
+    socket.on('selected', function(data) {
+    	socket.chooseSeat[data.id] = data;
+        io.emit("locking",data);
+    });
+    socket.on('cancleselected', function(data) {
+    	delete socket.chooseSeat[data.id];
+        io.emit("canclelocking",data)
+    });
+
+    socket.on('sold', function(data) {
+        // 把售卖的座位信息返给其他用户
+        socket.isSold = true
+        io.emit('seatsold', Object.keys(data));
+    });
+
+    //监听用户退出  释放用户选择的未提交座位
+    socket.on('disconnect', function() {
+    	// 如果没有购买，直接就退出了，才去释放座位
+    	if (!socket.isSold) {
+    		io.emit('userout', socket.chooseSeat);
+    	}
+    })
+});

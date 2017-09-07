@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>基于socket.io的实时在线选座系统(影院版)</title>
+    <meta name="keywords" content="jQuery在线选座,jQuery选座系统,WebSocket,socket.io,实时选座系统" />
+    <meta name="description" content="本项目是基于jquery.seat-charts在线选座插件。集合socket.io,实现的实时选座系统，可应用于剧院,影院,车票等" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+    <div class="container">
+        <h2 class="title"><a href="#">jQuery在线选座(影院版)</a></h2>
+        <div class="demo clearfix">
+            <!---左边座位列表-->
+            <div id="seat_area">
+                <div class="front">屏幕</div>
+            </div>
+            <!---右边选座信息-->
+            <div class="booking_area">
+                <p>电影：<span>天将雄师</span></p>
+                <p>时间：<span>03月20日 22:15</span></p>
+                <p>座位：</p>
+                <ul id="seats_chose"></ul>
+                <p>票数：<span id="tickects_num">0</span></p>
+                <p>总价：<b>￥<span id="total_price">0</span></b></p>
+                <input type="button" class="btn" id="commitSeat" value="确定购买" />
+                <div id="legend"></div>
+            </div>
+        </div>
+    </div> 
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/jquery.seat-charts.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
