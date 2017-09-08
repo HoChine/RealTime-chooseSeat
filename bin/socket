@@ -33,6 +33,11 @@ io.on('connection', function(socket) {
     //监听用户退出  释放用户选择的未提交座位
     socket.on('disconnect', function() {
     	// 如果没有购买，直接就退出了，才去释放座位
+
+        for(var t in socket.chooseSeat){
+            delete io.chooseSeat[t];
+        }
+
     	if (!socket.isSold) {
     		io.emit('userout', socket.chooseSeat);
     	}

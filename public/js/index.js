@@ -107,8 +107,11 @@ $(function(){
             this.emit("login","用户进入选座页面")
             initData.socket.on("loginlock",function(loginlock){
                 for(var t in loginlock){
-                    $('#'+t).addClass("locking"); 
-                }
+                    var isMine = interaction.isMineFire(t,"selected");
+                    if (!isMine) {
+                       $('#'+t).addClass("locking");  
+                    }
+                }    
             })
 
             initData.socket.on("locking",function(data){
