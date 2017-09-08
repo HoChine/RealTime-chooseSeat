@@ -104,6 +104,13 @@ $(function(){
            initData.socket.emit(type,msg); 
         },
         socketEvent:function(){
+            this.emit("login","用户进入选座页面")
+            initData.socket.on("loginlock",function(loginlock){
+                for(var t in loginlock){
+                    $('#'+t).addClass("locking"); 
+                }
+            })
+
             initData.socket.on("locking",function(data){
                 var isMine = interaction.isMineFire(data.id,"selected");
                 if (!isMine) {
@@ -125,6 +132,8 @@ $(function(){
                     $('#'+item).addClass('unavailable');
                 })
             })
+
+            
         },
         isMineFire:function(id,type){
             return  $('#'+id).attr('class').indexOf(type) > 0;

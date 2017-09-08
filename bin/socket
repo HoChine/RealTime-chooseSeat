@@ -1,18 +1,26 @@
 var server = require("./www");
 var io = require("socket.io")(server);
 
+io.chooseSeat = {};
+
 io.on('connection', function(socket) {
 	//用户选择的座位
 	socket.chooseSeat = {};
 	socket.isSold = false;
 
+    socket.on('login', function(data) {
+        io.emit("loginlock",io.chooseSeat);
+    });
+
     //监听用户选择座位
     socket.on('selected', function(data) {
-    	socket.chooseSeat[data.id] = data;
+        socket.chooseSeat[data.id] = data;
+    	io.chooseSeat[data.id] = data;
         io.emit("locking",data);
     });
     socket.on('cancleselected', function(data) {
-    	delete socket.chooseSeat[data.id];
+        delete socket.chooseSeat[data.id];
+    	delete io.chooseSeat[data.id];
         io.emit("canclelocking",data)
     });
 
