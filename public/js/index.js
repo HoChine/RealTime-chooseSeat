@@ -1,7 +1,7 @@
 $(function(){
     var price = 100; //电影票价
     var initData = {
-        socket: io.connect('http://localhost:3000'),
+        socket: io.connect('http://192.168.1.96:3000'),
         mapData:[ //座位结构图 a 代表座位; 下划线 "_" 代表过道
             'cccccccccc',
             'cccccccccc',
@@ -22,8 +22,6 @@ $(function(){
         ],
         selectedSeat:{}  
     }
-
-
     var interaction = {
         initMap:function(){
             var _this = this;
@@ -104,7 +102,7 @@ $(function(){
            initData.socket.emit(type,msg); 
         },
         socketEvent:function(){
-            this.emit("login","用户进入选座页面")
+            this.emit("login","用户进入选座页面");        
             initData.socket.on("loginlock",function(loginlock){
                 for(var t in loginlock){
                     var isMine = interaction.isMineFire(t,"selected");
@@ -113,7 +111,6 @@ $(function(){
                     }
                 }    
             })
-
             initData.socket.on("locking",function(data){
                 var isMine = interaction.isMineFire(data.id,"selected");
                 if (!isMine) {
@@ -134,9 +131,7 @@ $(function(){
                 $.each(soldseat,function(index,item){
                     $('#'+item).addClass('unavailable');
                 })
-            })
-
-            
+            })        
         },
         isMineFire:function(id,type){
             return  $('#'+id).attr('class').indexOf(type) > 0;

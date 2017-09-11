@@ -1,4 +1,4 @@
-# 基于socket.io的实时在线选座系统(demo)
+﻿# 基于socket.io的实时在线选座系统(demo)
 
 ### 前言
 
@@ -20,6 +20,17 @@ npm start
 多打开几个浏览器，可查看实时响应效果
 ```
 
+###  注意事项
+
+> 此处需要修改端口，否则会出现监听不到的情况。
+
+![注意事项][1]
+    
+
+
 ### 技术栈
 
 node.js + express + socket.io + jquery.seat-chart
+
+
+  [1]: http://online-img.oss-cn-beijing.aliyuncs.com/Real-time-bug.png
